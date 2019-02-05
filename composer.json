@@ -10,7 +10,7 @@
   "type": "library",
   "require": {
     "symfony/serializer": "^4.1",
-    "php": ">=7.2",
+    "php": ">=7.1",
     "ext-json": "*"
   },
   "require-dev": {
