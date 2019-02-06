@@ -46,6 +46,10 @@ class DatiGenerali
      */
     private $RiferimentoFase = null;
     /**
+     * @var null|array
+     */
+    private $DatiDDT = null;
+    /**
      * @var null|string
      */
     private $NumeroDDT = null;
@@ -221,6 +225,24 @@ class DatiGenerali
     /**
      * @return null|string
      */
+    public function getDatiDDT(): ?array
+    {
+        return $this->DatiDDT;
+    }
+
+    /**
+     * @param null|string $NumeroDDT
+     * @return DatiGenerali
+     */
+    public function setDatiDDT(?array $DatiDDT): DatiGenerali
+    {
+        $this->DatiDDT = $DatiDDT;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getDataDDT(): ?string
     {
         return $this->DataDDT;
@@ -248,7 +270,7 @@ class DatiGenerali
      * @param null|string $RiferimentoNumeroLinea
      * @return DatiGenerali
      */
-    public function setRiferimentoNumeroLinea(?string $RiferimentoNumeroLinea): DatiGenerali
+    public function setRiferimentoNumeroLinea(?array $RiferimentoNumeroLinea): DatiGenerali
     {
         $this->RiferimentoNumeroLinea = $RiferimentoNumeroLinea;
         return $this;
@@ -359,15 +381,19 @@ class DatiGenerali
         if (!empty($this->getRiferimentoFase())) {
             $array['DatiSAL']['RiferimentoFase'] = $this->getRiferimentoFase();
         }
-        if (!empty($this->getNumeroDDT())) {
-            $array['DatiDDT']['NumeroDDT'] = $this->getNumeroDDT();
+
+        if (!empty($this->getDatiDDT())) {
+            $array['DatiDDT'] = $this->getDatiDDT();
         }
-        if (!empty($this->getDataDDT())) {
-            $array['DatiDDT']['NumeroDDT'] = $this->getDataDDT();
-        }
-        if (!empty($this->getRiferimentoNumeroLinea())) {
-            $array['DatiDDT']['RiferimentoNumeroLinea'] = $this->getRiferimentoNumeroLinea();
-        }
+        // if (!empty($this->getNumeroDDT())) {
+        //     $array['DatiDDT']['NumeroDDT'] = $this->getNumeroDDT();
+        // }
+        // if (!empty($this->getDataDDT())) {
+        //     $array['DatiDDT']['NumeroDDT'] = $this->getDataDDT();
+        // }
+        // if (!empty($this->getRiferimentoNumeroLinea())) {
+        //     $array['DatiDDT']['RiferimentoNumeroLinea'] = $this->getRiferimentoNumeroLinea();
+        // }
 
         if ($this->getDatiTrasporto() instanceof DatiTrasporto) {
             $array['DatiTrasporto'] = $this->getDatiTrasporto()->toArray();
@@ -412,15 +438,19 @@ class DatiGenerali
         if (!empty($array['DatiSAL']['RiferimentoFase'])) {
             $o->setRiferimentoFase($array['DatiSAL']['RiferimentoFase']);
         }
-        if (!empty($array['DatiDDT']['NumeroDDT'])) {
-            $o->setNumeroDDT($array['DatiDDT']['NumeroDDT']);
+        
+        if (!empty($array['DatiDDT'])) {
+            $o->setDatiDDT($array['DatiDDT']);
         }
-        if (!empty($array['DatiDDT']['NumeroDDT'])) {
-            $o->setDataDDT($array['DatiDDT']['NumeroDDT']);
-        }
-        if (!empty($array['DatiDDT']['RiferimentoNumeroLinea'])) {
-             $o->setRiferimentoNumeroLinea($array['DatiDDT']['RiferimentoNumeroLinea']);
-        }
+        // if (!empty($array['DatiDDT']['NumeroDDT'])) {
+        //     $o->setNumeroDDT($array['DatiDDT']['NumeroDDT']);
+        // }
+        // if (!empty($array['DatiDDT']['NumeroDDT'])) {
+        //     $o->setDataDDT($array['DatiDDT']['NumeroDDT']);
+        // }
+        // if (!empty($array['DatiDDT']['RiferimentoNumeroLinea'])) {
+        //      $o->setRiferimentoNumeroLinea($array['DatiDDT']['RiferimentoNumeroLinea']);
+        // }
 
         if (!empty($array['DatiTrasporto'])) {
              $o->setDatiTrasporto(DatiTrasporto::fromArray($array['DatiTrasporto']));
