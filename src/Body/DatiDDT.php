@@ -15,7 +15,7 @@ class DatiDDT
      */
     private $DataDDT = null;
     /**
-     * @var null|string
+     * @var null|array
      */
     private $RiferimentoNumeroLinea = null;
 
@@ -87,18 +87,18 @@ class DatiDDT
     }
 
     /**
-     * @return null|string
+     * @return null|array
      */
-    public function getRiferimentoNumeroLinea(): ?string
+    public function getRiferimentoNumeroLinea(): ?array
     {
         return $this->RiferimentoNumeroLinea;
     }
 
     /**
-     * @param null|string $RiferimentoNumeroLinea
+     * @param null|array $RiferimentoNumeroLinea
      * @return DatiGenerali
      */
-    public function setRiferimentoNumeroLinea(?string $RiferimentoNumeroLinea): DatiDDT
+    public function setRiferimentoNumeroLinea(?array $RiferimentoNumeroLinea): DatiDDT
     {
         $this->RiferimentoNumeroLinea = $RiferimentoNumeroLinea;
         return $this;
