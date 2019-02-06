@@ -120,7 +120,7 @@ class CessionarioCommittente
      */
     public function getCodiceFiscale(): string
     {
-        return $this->CodiceFiscale;
+        return $this->CodiceFiscale ?? '';
     }
 
     /**
