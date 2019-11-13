@@ -562,10 +562,10 @@ class DatiGeneraliDocumento
     }
 
     /**
-     * @param null|string[] $Causale
+     * @param null|string $Causale
      * @return DatiGeneraliDocumento
      */
-    public function setCausale(?array $Causale): DatiGeneraliDocumento
+    public function setCausale(?string $Causale): DatiGeneraliDocumento
     {
         $this->Causale = $Causale;
         return $this;
