@@ -51,7 +51,7 @@ class FatturaElettronicaXmlReader
      * @return array
      * @throws FatturaElettronicaException
      */
-    public static function decodeFromFileToArry(string $filePath){
+    public static function decodeFromFileToArray(string $filePath){
         $o = new FatturaElettronicaXmlReader();
         return $o->xmlEncoder->decode($o->clearSignature(file_get_contents($filePath)),null);
     }
